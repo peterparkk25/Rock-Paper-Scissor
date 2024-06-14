@@ -1,5 +1,3 @@
-// console.log(Math.random());
-
 const getComputerChoice = function () {
   computerChoice = "";
   randomNum = Math.floor(Math.random() * 3);
@@ -8,13 +6,13 @@ const getComputerChoice = function () {
   else return "scissor";
 };
 
-const getHumanChoice = function () {
-  const returnValue = window.prompt(
-    "Please enter 'rock', 'paper', or scissor'"
-  );
-  console.log(returnValue);
-  return returnValue;
-};
+// const getHumanChoice = function () {
+//   const returnValue = window.prompt(
+//     "Please enter 'rock', 'paper', or scissor'"
+//   );
+//   console.log(returnValue);
+//   return returnValue;
+// };
 
 let humanScore = 0;
 let computerScore = 0;
@@ -61,19 +59,35 @@ const playRound = function (humanChoice, computerChoice) {
 
 // playRound(humanSelection, computerSelection);
 
-const playGame = function () {
-  for (let i = 0; i < 5; i++) {
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
-    playRound(humanSelection, computerSelection);
-  }
-  if (humanScore > computerScore)
-    console.log("You win! You have more points that the computer!");
-  else if (humanScore === computerScore)
-    console.log(
-      "The game is a tie! Both you and the computer have the same score!"
-    );
-  else console.log("You lose, the computer scored more points than you!");
-};
+// const playGame = function () {
+//   for (let i = 0; i < 5; i++) {
+//     let humanSelection = getHumanChoice();
+//     let computerSelection = getComputerChoice();
+//     playRound(humanSelection, computerSelection);
+//   }
+//   if (humanScore > computerScore)
+//     console.log("You win! You have more points than the computer!");
+//   else if (humanScore === computerScore)
+//     console.log(
+//       "The game is a tie! Both you and the computer have the same score!"
+//     );
+//   else console.log("You lose, the computer scored more points than you!");
+// };
 
-playGame();
+// playGame();
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+  let humanChoice = document.getElementById("btn").textContent;
+  button.addEventListener("click", () => {
+    console.log(humanChoice);
+  });
+});
+
+// const getHumanChoice = function () {};
+
+const container = document.querySelector("#container");
+const scoreBoard = document.createElement("div");
+scoreBoard.classList.add("scoreBoard");
+scoreBoard.textContent = "Temporary placeholder for scoreboard";
+container.appendChild(scoreBoard);
